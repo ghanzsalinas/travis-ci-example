@@ -9,6 +9,16 @@ jobs:
     - stage: Test
       script: ./mvnw clean test 
 
+addons:
+  sonarcloud:
+    organization: "ghanzsalinas"
+    token:
+      secure: "**************************" # encrypted value of your token
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - sonar-scanner
+
 notifications: 
    email: george.hanz.salinas@gmail.com
 
